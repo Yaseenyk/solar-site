@@ -15,7 +15,7 @@ export const VERIFICATION = { google: "OG5PRiRPw3I5jB5p-G7nDzf_mlxdiZzrpLaFYCZ0p
 /** GA4 measurement ID and Clarity project ID. Create a new GA4 web stream for
  *  solar.streamerosai.com, paste the G- ID here; empty means the tag is not emitted. */
 export const GA_ID = "G-9F1T1EQZBH";
-export const CLARITY_ID = "";
+export const CLARITY_ID = "z8kbf63t9o";
 
 /**
  * Languages Google is asked to index. The others stay live for visitors (language switcher) but carry
