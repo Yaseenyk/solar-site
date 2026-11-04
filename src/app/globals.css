@@ -6,6 +6,14 @@
   html {
     scroll-behavior: smooth;
   }
+  /* Indic scripts: the Inter webfont has no glyphs for them, so name common system fonts before the generic fallback. */
+  body {
+    font-family: var(--font-inter), "Nirmala UI", "Noto Sans", "Noto Sans Devanagari", system-ui, sans-serif;
+  }
+  [dir="rtl"] {
+    font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Jameel Noori Nastaleeq", "Segoe UI", Tahoma, sans-serif;
+    line-height: 2;
+  }
   body {
     @apply text-zinc-100 antialiased;
     overflow-x: hidden;

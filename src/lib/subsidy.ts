@@ -30,3 +30,12 @@ export function evaluate(q: Quote) {
   const paybackYears = yearlySaving > 0 ? net / yearlySaving : null;
   return { subsidy, net, yearlySaving, paybackYears, perKw: q.kw > 0 ? Math.round(q.quote / q.kw) : 0 };
 }
+
+/** Ministry benchmark cost for a system (first 2 kW at one rate, the third kW at another). Not what you will be quoted. */
+export function benchmarkCost(kw: number, special = false): number {
+  if (!(kw > 0)) return 0;
+  const first = special ? FACTS.benchmarkSpecialFirstTwo.value : FACTS.benchmarkFirstTwo.value;
+  const third = special ? FACTS.benchmarkSpecialThirdKw.value : FACTS.benchmarkThirdKw.value;
+  const capped = Math.min(kw, 3);
+  return Math.round(Math.min(capped, 2) * first + Math.max(0, capped - 2) * third);
+}

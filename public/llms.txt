@@ -5,5 +5,8 @@
 - [Subsidy per kW, cap and examples](https://solar.streamerosai.com/pm-surya-ghar-subsidy/)
 - [How to apply](https://solar.streamerosai.com/pm-surya-ghar-apply/)
 - [Check application and subsidy status](https://solar.streamerosai.com/pm-surya-ghar-subsidy-status/)
+- [Rooftop solar cost and net cost after subsidy](https://solar.streamerosai.com/solar-system-cost-india-subsidy/)
 - [Subsidy calculator](https://solar.streamerosai.com/solar-subsidy-calculator/)
 - [Full text](https://solar.streamerosai.com/llms-full.txt)
+
+Available in English and 12 Indian languages: /hi/ (Hindi), /bn/, /mr/, /te/, /ta/, /gu/, /kn/, /ml/, /pa/, /or/, /as/, /ur/.

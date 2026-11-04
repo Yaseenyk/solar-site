@@ -1,0 +1,355 @@
+{
+  "meta": { "lang": "en", "name": "English", "english": "English", "dir": "ltr" },
+  "ui": {
+    "siteName": "Surya Ghar Guide",
+    "badge": "Independent guide · not a government site",
+    "nav": { "subsidy": "Subsidy", "cost": "Cost", "apply": "How to apply", "status": "Check status", "calculator": "Calculator" },
+    "home": "Home",
+    "updated": "Updated",
+    "sources": "Sources",
+    "checked": "checked",
+    "faq": "Common questions",
+    "ad": "Advertisement",
+    "language": "Language",
+    "disclaimer": "This is an independent guide, not a government website and not affiliated with MNRE or the PM Surya Ghar portal. Rules and rates change: confirm on the official portal before you pay anyone.",
+    "written": "Written by",
+    "privacy": "Privacy",
+    "calc": {
+      "size": "System size (kW)",
+      "quote": "Vendor's total quote (₹)",
+      "bill": "Your monthly electricity bill (₹)",
+      "cut": "Share of the bill the system removes (%)",
+      "special": "My state is a special category state or UT (North-East, Uttarakhand, Himachal Pradesh, J&K, Ladakh, A&N, Lakshadweep)",
+      "noteOver": "The central subsidy stops at 3 kW; the extra capacity gets none, so only 3 kW is counted.",
+      "note": "For {kw} kW the central subsidy is {amount}.",
+      "subsidy": "Central subsidy",
+      "net": "Cost after subsidy",
+      "payback": "Payback",
+      "years": "{n} years",
+      "na": "n/a",
+      "perKw": "Your quote works out to {amount} per kW.",
+      "footnote": "You pay the full quote first; the subsidy is paid back to you afterwards. The savings figure is your own assumption (the share of your bill the system removes), not a measured result, and it ignores tariff changes, loan interest and maintenance."
+    },
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "state": "State",
+      "message": "Your quote, system size, or question",
+      "submit": "Ask for a free second opinion",
+      "sending": "Sending…",
+      "done": "Thanks, I have your details and will reply by email.",
+      "error": "Could not send it from here. Please email {email} instead.",
+      "note": "Used only to reply to you. See the [privacy notice](/privacy/). This is advice on reading a quote, not an installation service."
+    },
+    "table": {
+      "system": "System",
+      "normal": "Normal states",
+      "special": "Special category",
+      "benchmark": "Benchmark cost",
+      "subsidy": "Central subsidy",
+      "net": "Cost after subsidy (at benchmark)",
+      "kw": "{n} kW",
+      "capped": "{n} kW (subsidy capped at 3 kW)"
+    }
+  },
+  "pages": {
+    "home": {
+      "title": "How much subsidy will you actually get for rooftop solar?",
+      "metaTitle": "PM Surya Ghar Subsidy Guide: Rates, Apply, Status",
+      "description": "An independent guide to the PM Surya Ghar rooftop solar subsidy: what you get per kW, how to apply, how to check your status, and a calculator to test a vendor's quote. Every number links to its source.",
+      "crumb": "Home",
+      "answer": "Under PM Surya Ghar the central subsidy is {{fact:ratePerKwFirstTwo}} per kW for the first 2 kW and {{fact:rateThirdKw}} for a third kW, so a household gets at most {{fact:maxSubsidy}}. This site shows the arithmetic, the steps, where to log in and what to check, and links every figure to its source.",
+      "faqs": [],
+      "blocks": [
+        { "t": "h2", "x": "Test a vendor's quote" },
+        { "t": "p", "x": "Put in the size and the price you were quoted. Nothing you type leaves your browser." },
+        { "t": "calculator" },
+        { "t": "ad", "slot": "home-mid" },
+        { "t": "h2", "x": "Start here" },
+        {
+          "t": "ul",
+          "items": [
+            "[What the subsidy covers, by system size and state category](/pm-surya-ghar-subsidy/)",
+            "[What rooftop solar costs and what you pay after subsidy](/solar-system-cost-india-subsidy/)",
+            "[How to apply, step by step, and where to log in](/pm-surya-ghar-apply/)",
+            "[How to check your application and subsidy status](/pm-surya-ghar-subsidy-status/)"
+          ]
+        },
+        { "t": "h2", "x": "Want a second opinion on a quote?" },
+        { "t": "p", "x": "Send the quote or a question. I will tell you what the numbers mean, not sell you a panel." },
+        { "t": "form", "ctx": "home" },
+        { "t": "ad", "slot": "home-bottom" }
+      ],
+      "sourceKeys": ["ratePerKwFirstTwo", "rateThirdKw", "maxSubsidy"]
+    },
+    "subsidy": {
+      "title": "PM Surya Ghar Subsidy: Amount per kW, Cap and Examples",
+      "metaTitle": "PM Surya Ghar Subsidy: Amount per kW, Cap and Examples",
+      "description": "How much central subsidy PM Surya Ghar pays for 1, 2 and 3 kW rooftop solar, the cap, special category state rates, who is eligible and worked examples, all with sources.",
+      "crumb": "Subsidy",
+      "answer": "The central subsidy is {{fact:ratePerKwFirstTwo}} per kW for the first 2 kW plus {{fact:rateThirdKw}} for the third kW. Nothing is paid above 3 kW, so the most a household gets is {{fact:maxSubsidy}}. Special category states and UTs get {{fact:specialFirstTwo}} and {{fact:specialThirdKw}}.",
+      "faqs": [
+        { "q": "What is the maximum subsidy under PM Surya Ghar?", "a": "{{fact:maxSubsidy}} per household, for a system of 3 kW or more. Capacity above 3 kW gets no extra central subsidy." },
+        { "q": "Is the subsidy paid before or after installation?", "a": "After. The residential subsidy applies to the capex model, which means you pay the installation cost first and the subsidy is paid to you once the DISCOM has inspected and approved the system." },
+        { "q": "Do the panels have to be made in India?", "a": "Yes. Modules must meet the Domestic Content Requirement: domestically manufactured modules made from domestically manufactured cells. Using non-DCR modules in any form makes the installation ineligible." },
+        { "q": "Is an off-grid system eligible?", "a": "No. Off-grid installations are not eligible. The system must be connected to the grid." }
+      ],
+      "blocks": [
+        { "t": "h2", "x": "Subsidy by system size" },
+        { "t": "p", "x": "Worked from the official rates. Your state may add its own top-up on top of this central amount." },
+        { "t": "subsidyTable", "sizes": [1, 2, 2.5, 3, 5] },
+        { "t": "ad", "slot": "subsidy-mid" },
+        { "t": "h2", "x": "The arithmetic" },
+        { "t": "p", "x": "For 2.5 kW in a normal state: 2 kW × {{fact:ratePerKwFirstTwo}} + 0.5 kW × {{fact:rateThirdKw}} = {{sub:2.5}}. The subsidy is worked out on the rated capacity of the solar modules, not the inverter. Try your own size in the [calculator](/solar-subsidy-calculator/)." },
+        { "t": "h2", "x": "Who is eligible and what the rules are" },
+        {
+          "t": "ul",
+          "items": [
+            "You apply as a household electricity consumer with a valid consumer account number with your distribution company (DISCOM). Tenants: the guideline does not spell this out, so ask your DISCOM.",
+            "Modules must be domestically manufactured from domestic cells (Domestic Content Requirement). This is an essential condition.",
+            "The system must be grid-connected. Off-grid systems are not eligible.",
+            "The subsidy is paid once per installation. A system moved to a new location does not get it again.",
+            "If you already got a subsidy for a smaller system under an earlier scheme and now enlarge it, you can claim only for the added capacity, up to 3 kW in total.",
+            "You can add a battery or other extras, but the subsidy is still calculated on the solar module capacity.",
+            "You can choose to forgo the subsidy through the portal's \"Give It Up\" option; you are then free to use non-DCR modules."
+          ]
+        },
+        { "t": "h2", "x": "Special category states and UTs" },
+        { "t": "p", "x": "These get {{fact:specialFirstTwo}} per kW for the first 2 kW and {{fact:specialThirdKw}} for the third kW:" },
+        { "t": "ul", "items": ["The North-Eastern states, including Sikkim", "Uttarakhand", "Himachal Pradesh", "Jammu & Kashmir", "Ladakh", "Andaman & Nicobar Islands", "Lakshadweep"] },
+        { "t": "h2", "x": "State top-ups" },
+        { "t": "p", "x": "States and UTs may add their own subsidy on top of the central one, and it is processed through the same national portal. Amounts differ by state and change, so this guide does not list them. Ask your DISCOM or check the portal for your state." },
+        { "t": "h2", "x": "Housing societies and RWAs" },
+        { "t": "p", "x": "For common facilities such as lifts, lights, pumps and EV charging, the subsidy is {{fact:societyRate}} per kW, up to 500 kW (counted at 3 kW per house)." },
+        { "t": "h2", "x": "What to know before you sign with a vendor" },
+        {
+          "t": "ul",
+          "items": [
+            "You pay the full price first and the subsidy follows, so judge the quote by the cost after subsidy. See [what rooftop solar costs](/solar-system-cost-india-subsidy/).",
+            "Choose only a vendor registered on the national portal; the scheme works only through registered vendors.",
+            "Apply on the [official portal](https://pmsuryaghar.gov.in/), not through a middleman who asks for an advance \"subsidy fee\". The portal itself, not an agent, is the only route to the subsidy."
+          ]
+        },
+        { "t": "ad", "slot": "subsidy-bottom" }
+      ],
+      "sourceKeys": ["ratePerKwFirstTwo", "specialFirstTwo", "societyRate", "capexOnly", "domesticContent", "officialPortal"]
+    },
+    "cost": {
+      "title": "Rooftop Solar Cost in India: Benchmark Price and Net Cost After Subsidy",
+      "metaTitle": "Rooftop Solar Cost in India: 1, 2, 3 kW Price After Subsidy",
+      "description": "The Ministry's benchmark cost for 1, 2 and 3 kW rooftop solar, the PM Surya Ghar subsidy, and what you pay after subsidy, with how to judge a vendor's quote.",
+      "crumb": "Cost",
+      "answer": "The Ministry fixed a benchmark cost of {{fact:benchmarkFirstTwo}} per kW for the first 2 kW and {{fact:benchmarkThirdKw}} for the additional kW (from 13 February 2024). A 3 kW system is therefore benchmarked at {{bench:3}}; after the {{sub:3}} subsidy that is {{net:3}}. Real quotes vary with brand, roof and state.",
+      "faqs": [
+        { "q": "What is a fair price for 3 kW rooftop solar in India?", "a": "The Ministry's benchmark is {{bench:3}} for 3 kW (normal states). After the central subsidy of {{sub:3}}, the benchmark net cost is {{net:3}}. A quote well above the benchmark deserves a written explanation." },
+        { "q": "Is the benchmark the price I will pay?", "a": "No. The benchmark is a reference the scheme uses; you agree the actual price directly with the vendor. It was set in February 2024 and can be revised, so check the current figure on the portal." }
+      ],
+      "blocks": [
+        { "t": "h2", "x": "Benchmark cost and cost after subsidy" },
+        { "t": "p", "x": "Normal states, central subsidy only. State top-ups would reduce the net cost further." },
+        { "t": "costTable", "sizes": [1, 2, 3] },
+        { "t": "ad", "slot": "cost-mid" },
+        { "t": "h2", "x": "How to use the benchmark" },
+        {
+          "t": "ul",
+          "items": [
+            "Get at least three written quotes for the same size, with panel make, inverter make and warranty stated.",
+            "Compare each total with the benchmark above. A quote far above it needs a reason, such as a difficult roof or longer cable run, in writing.",
+            "Do not judge on the subsidy alone: the number that matters is what stays in your pocket, quote minus subsidy. The [calculator](/solar-subsidy-calculator/) does this.",
+            "The Ministry also publishes indicative costs of components such as modules and inverters, so that consumers are not overcharged. Look for them on the portal."
+          ]
+        },
+        { "t": "h2", "x": "What affects the real price" },
+        {
+          "t": "ul",
+          "items": [
+            "Module and inverter brand. Modules must still be domestic-content compliant to get the subsidy.",
+            "Your roof: height, shade, structure, and the distance to the meter.",
+            "Your state: special category states have a higher benchmark ({{fact:benchmarkSpecialFirstTwo}} and {{fact:benchmarkSpecialThirdKw}}) and a higher subsidy.",
+            "Net meter: it is provided by the DISCOM, or you can buy one from an enlisted meter vendor, so ask whether the quote includes it.",
+            "Warranty and service: registered vendors must give free repair and maintenance for {{num:cmcYears}} years from commissioning."
+          ]
+        },
+        { "t": "h2", "x": "What this page does not tell you" },
+        { "t": "p", "x": "It does not give market prices from installers; I have not sourced those, and they change. Use the benchmark as the official reference, then compare real quotes." },
+        { "t": "ad", "slot": "cost-bottom" }
+      ],
+      "sourceKeys": ["benchmarkFirstTwo", "benchmarkThirdKw", "benchmarkSpecialFirstTwo", "ratePerKwFirstTwo", "cmcYears", "officialPortal"]
+    },
+    "apply": {
+      "title": "How to Apply for PM Surya Ghar Rooftop Solar, Step by Step",
+      "metaTitle": "How to Apply for PM Surya Ghar: Login, Steps, Documents",
+      "description": "Step-by-step PM Surya Ghar application: where to log in, what you need, how to pick a vendor, upload documents, get the DISCOM inspection and redeem the subsidy.",
+      "crumb": "How to apply",
+      "answer": "Log in at {{link:consumerLogin}} with your mobile number (OTP), register your electricity consumer number, apply, pick a registered vendor, get the system installed, upload the documents and photos, wait for the DISCOM inspection, then redeem the e-token. The subsidy is processed within {{num:claimDays}} days of DISCOM approval.",
+      "faqs": [
+        { "q": "Where do I apply?", "a": "Only on the National Portal for Rooftop Solar run by MNRE. The guideline says the benefits are available only through this portal. Use the official address and be careful with lookalike sites." },
+        { "q": "Do I choose the installer?", "a": "Yes. You choose any vendor registered on the portal and agree the price directly. There is no tender or fixed rate set by the DISCOM." },
+        { "q": "How long until I get the subsidy?", "a": "The subsidy is processed within {{num:claimDays}} days of the DISCOM approving your application. The steps before that, installation, inspection and meter, depend on your vendor and your DISCOM and take longer." },
+        { "q": "Do I need DISCOM approval before installing?", "a": "Systems up to {{num:deemedKw}} kW are deemed accepted without a technical feasibility approval, but only once your state regulator and DISCOM have put that rule into practice. Until then, upload the documents your DISCOM asks for and wait for approval where your state requires it." }
+      ],
+      "blocks": [
+        { "t": "h2", "x": "Before you start: what you need" },
+        {
+          "t": "ul",
+          "items": [
+            "**Your electricity consumer account number**: the number printed on your bill from your distribution company (DISCOM).",
+            "**A mobile number** that can receive an OTP. The portal verifies it first.",
+            "**Bank account details and proof** that the account is yours: a cancelled cheque image, a bank e-statement, or a passbook scan.",
+            "**A roof you can use**, and a grid-connected electricity connection. Off-grid systems are not eligible.",
+            "**Domestic-content modules.** Ask the vendor to confirm in writing that the modules and cells are made in India."
+          ]
+        },
+        { "t": "h2", "x": "Where to log in" },
+        {
+          "t": "ul",
+          "items": [
+            "Consumer login and registration: [consumer.pmsuryaghar.gov.in/consumer/](https://consumer.pmsuryaghar.gov.in/consumer/)",
+            "Main portal: [pmsuryaghar.gov.in](https://pmsuryaghar.gov.in/)"
+          ]
+        },
+        { "t": "p", "x": "The portal's own instructions say: enter your mobile number and verify it with the OTP; and on the vendor pop-up, click Yes if you want your vendor to fill in the application for you. Check the address bar before you enter anything. Screens and labels can change, so follow the on-screen prompts." },
+        { "t": "ad", "slot": "apply-top" },
+        { "t": "h2", "x": "Step by step" },
+        {
+          "t": "ol",
+          "items": [
+            "**Register and log in.** Open the consumer login page, enter your mobile number and verify the OTP. Choose your state and electricity distribution company, and enter your consumer account number.",
+            "**Apply for rooftop solar.** Submit the application. The portal gives you an application ID. Keep it: you will need it for every later step.",
+            "**Choose a registered vendor.** Use the portal's vendor list and comparison tool. You are free to pick any registered vendor at a price you agree; nobody sets the rate for you. Get at least three written quotes.",
+            "**Agree the design and price in writing.** System size, panel and inverter make, warranty, what is included. A sample vendor-consumer agreement is attached to the official guideline. Compare the total with the [benchmark cost](/solar-system-cost-india-subsidy/).",
+            "**Feasibility approval, if your state needs it.** Systems up to {{num:deemedKw}} kW are deemed accepted, but only once your state has put this into practice. If your DISCOM still asks for documents, upload them and wait for approval before the vendor installs.",
+            "**The vendor installs.** The vendor installs the system, does the safety checks and explains maintenance and safety to you.",
+            "**Update the portal.** After installation, enter the system details and upload the required documents, including geo-tagged photographs. Your vendor may help from your consumer login. The application then moves to the DISCOM.",
+            "**DISCOM inspection and meter.** The DISCOM physically inspects the system against a checklist, signs the metering agreement with you, and installs the meter. The DISCOM can approve, send the application back for corrections, or reject it with a reason. The subsidy is processed only after this physical check.",
+            "**Submit your bank details.** Upload the cancelled cheque, e-statement or passbook scan on the portal. If you took a loan, your loan account details are also needed.",
+            "**Redeem the e-token.** Once the documents are uploaded and the DISCOM has finished, an e-token is activated in your portal profile with the subsidy for your installed capacity. Log in and redeem it.",
+            "**Receive the subsidy.** It is processed within {{num:claimDays}} days of DISCOM approval and paid to your bank account. If you took a loan, it goes to the loan account first, and any remainder to your bank account."
+          ]
+        },
+        { "t": "h2", "x": "If you want a loan" },
+        { "t": "p", "x": "The portal lists loan products from banks, linked to the Jan Samarth portal. The guideline expects low-interest loans at about repo rate plus 0.5% for systems up to 3 kW. Ask the bank for the actual rate." },
+        { "t": "h2", "x": "After installation" },
+        {
+          "t": "ul",
+          "items": [
+            "The registered vendor must repair and maintain the system free of cost for {{num:cmcYears}} years from commissioning.",
+            "Under-performing components must be repaired or replaced free of cost in that period, and you keep the manufacturers' warranties.",
+            "If a system fault stops the subsidy or the commissioning, the vendor must fix it."
+          ]
+        },
+        { "t": "h2", "x": "Avoid these mistakes" },
+        {
+          "t": "ul",
+          "items": [
+            "Paying anyone a fee to \"release\" or \"speed up\" the subsidy. The subsidy goes through the portal only.",
+            "Letting a vendor install non-domestic modules. The subsidy would be lost.",
+            "Skipping the geo-tagged photos or bank proof. The application will bounce.",
+            "Forgetting that you pay first: keep funds or a loan ready for the full quote."
+          ]
+        },
+        { "t": "form", "ctx": "apply" },
+        { "t": "ad", "slot": "apply-bottom" }
+      ],
+      "sourceKeys": ["consumerLogin", "officialPortal", "claimDays", "deemedKw", "cmcYears", "capexOnly", "domesticContent"]
+    },
+    "status": {
+      "title": "PM Surya Ghar Subsidy Status: How to Check Your Application",
+      "metaTitle": "PM Surya Ghar Subsidy Status: How to Check, What Each Stage Means",
+      "description": "How to check your PM Surya Ghar application and subsidy status, what each stage means, who is responsible, and what to do if the file is stuck.",
+      "crumb": "Check status",
+      "answer": "Log in at {{link:consumerLogin}} with your registered mobile number and open your profile. Your application stage and your e-token are shown there. This site cannot see your application, and nobody else can check it for you.",
+      "faqs": [
+        { "q": "Can I check the status without logging in?", "a": "No. Your application is tied to your registered mobile number and consumer account, and the portal sends an OTP to that number. This site cannot see your application." },
+        { "q": "Who do I contact if my subsidy is delayed?", "a": "First find which stage the file is at. If it is waiting for documents, ask your vendor. If it is waiting for inspection or the meter, ask your DISCOM. If the DISCOM has approved it and {{num:claimDays}} days have passed, raise it through the portal's help options." },
+        { "q": "What is the e-token?", "a": "The subsidy is released through an e-token that appears in your portal profile. After your documents are uploaded and the DISCOM inspection is complete, it is activated with the subsidy for your installed capacity. You redeem it by logging in." }
+      ],
+      "blocks": [
+        { "t": "h2", "x": "How to check, step by step" },
+        {
+          "t": "ol",
+          "items": [
+            "Open [consumer.pmsuryaghar.gov.in/consumer/](https://consumer.pmsuryaghar.gov.in/consumer/).",
+            "Enter the mobile number you registered with and verify the OTP.",
+            "Open your profile and your application. Note the application ID, the current stage and the date.",
+            "Take a screenshot each time you check. A dated record helps if you need to raise a complaint."
+          ]
+        },
+        { "t": "h2", "x": "What to have ready" },
+        {
+          "t": "ul",
+          "items": [
+            "The mobile number you registered with.",
+            "Your electricity consumer account number.",
+            "Your application ID and your vendor's name and contact.",
+            "Your bank proof (cancelled cheque, e-statement or passbook scan) in case the portal asks for it again."
+          ]
+        },
+        { "t": "ad", "slot": "status-mid" },
+        { "t": "h2", "x": "Where is my file stuck?" },
+        {
+          "t": "stageTable",
+          "head": ["Stage", "Who acts", "What to do"],
+          "rows": [
+            ["Applied, no vendor chosen", "You", "Choose a registered vendor and agree the price."],
+            ["Waiting for feasibility approval (only if your state still requires it)", "DISCOM", "Check that the documents the DISCOM asked for are uploaded. Ask the DISCOM office."],
+            ["Installation done, details not uploaded", "You or your vendor", "Enter the system details and upload documents and geo-tagged photographs."],
+            ["Waiting for inspection or meter", "DISCOM", "Ask your DISCOM for the inspection date. The vendor can help follow up."],
+            ["Sent back for corrections", "You or your vendor", "Read the DISCOM's remark, fix the document or detail, and resubmit."],
+            ["Approved by the DISCOM, e-token active", "You", "Log in and redeem the e-token. The subsidy is processed within {{num:claimDays}} days of approval."],
+            ["Approved, but more than {{num:claimDays}} days and no money", "Portal / bank details", "Check that the bank account details and proof are correct. Raise it through the portal's help options."]
+          ]
+        },
+        { "t": "h2", "x": "Beware of fake \"status\" helpers" },
+        { "t": "p", "x": "Do not pay anyone, and do not share your OTP, to \"release\" or \"speed up\" your subsidy. The subsidy follows the official process on the portal. Use only the official addresses above." },
+        { "t": "ad", "slot": "status-bottom" }
+      ],
+      "sourceKeys": ["consumerLogin", "officialPortal", "claimDays"]
+    },
+    "calculator": {
+      "title": "Rooftop Solar Subsidy Calculator: Cost After Subsidy and Payback",
+      "metaTitle": "Rooftop Solar Subsidy Calculator: Cost After Subsidy and Payback",
+      "description": "Enter your system size and a vendor's quote to see the PM Surya Ghar central subsidy, the cost after subsidy and a payback estimate. Runs in your browser.",
+      "crumb": "Calculator",
+      "answer": "Enter the size, the quote and your bill. The subsidy comes from the official rates; the payback uses your own estimate of how much of the bill the system removes.",
+      "faqs": [],
+      "blocks": [
+        { "t": "h2", "x": "Calculator" },
+        { "t": "calculator" },
+        { "t": "ad", "slot": "calc-mid" },
+        { "t": "h2", "x": "How it works" },
+        {
+          "t": "ul",
+          "items": [
+            "Subsidy: the central rates, capped at 3 kW. State top-ups are not included.",
+            "Cost after subsidy: your quote minus the subsidy.",
+            "Payback: cost after subsidy divided by (monthly bill × 12 × the share you enter). It is a rough guide, not a guarantee."
+          ]
+        },
+        { "t": "p", "x": "Not sure what a fair quote is? See [the benchmark cost](/solar-system-cost-india-subsidy/)." },
+        { "t": "ad", "slot": "calc-bottom" }
+      ],
+      "sourceKeys": ["ratePerKwFirstTwo", "rateThirdKw", "maxSubsidy", "specialFirstTwo"]
+    },
+    "privacy": {
+      "title": "Privacy",
+      "metaTitle": "Privacy",
+      "description": "What this site collects, why, and who can see it.",
+      "crumb": "Privacy",
+      "answer": "The calculator runs in your browser. If you send the form, I store what you typed so I can reply. I do not sell it or share it with installers.",
+      "faqs": [],
+      "blocks": [
+        { "t": "h2", "x": "The calculator" },
+        { "t": "p", "x": "Runs in your browser. The numbers you type are not sent anywhere." },
+        { "t": "h2", "x": "The form" },
+        { "t": "p", "x": "If you send the second-opinion form, your name, email, optional phone, state and message are stored so I can reply. I do not sell them or share them with installers. Ask for deletion any time at {{email}}." },
+        { "t": "h2", "x": "Analytics" },
+        { "t": "p", "x": "Google Analytics counts visits and clicks, including which site or campaign sent you. Microsoft Clarity may record anonymised sessions (clicks and scrolling); text typed into forms is masked. Both set cookies or local storage. Block them in your browser if you prefer." },
+        { "t": "h2", "x": "Advertising" },
+        { "t": "p", "x": "This site may show ads served by Google. Google and its partners may use cookies to show ads based on your earlier visits. You can manage this in your Google ad settings. Ads never change what this guide says." }
+      ],
+      "sourceKeys": []
+    }
+  }
+}

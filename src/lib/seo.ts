@@ -31,7 +31,7 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
   };
 }
 
-export function articleJsonLd(o: { title: string; description: string; path: string; published: string; modified: string }) {
+export function articleJsonLd(o: { title: string; description: string; path: string; published: string; modified: string; lang: string }) {
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -41,7 +41,7 @@ export function articleJsonLd(o: { title: string; description: string; path: str
     mainEntityOfPage: `${SITE_URL}${o.path}`,
     datePublished: o.published,
     dateModified: o.modified,
-    inLanguage: "en-IN",
+    inLanguage: o.lang === "en" ? "en-IN" : o.lang,
     author: { "@id": PERSON_ID },
     publisher: { "@id": PERSON_ID },
   };

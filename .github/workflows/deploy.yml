@@ -83,17 +83,8 @@ jobs:
 
       - name: Submit URLs to IndexNow
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            mapfile -t urls < <(curl -s "$SITE/sitemap.xml" | grep -oP '(?<=<loc>)[^<]+')
-          else
-            urls=("$SITE/")
-            for f in $(git diff --name-only HEAD^ HEAD -- src/app 2>/dev/null); do
-              case "$f" in */page.tsx) ;; *) continue;; esac
-              route=$(dirname "${f#src/app}")
-              [ "$route" = "/" ] && continue
-              urls+=("$SITE$route/")
-            done
-          fi
+          # Content lives in JSON now, so a changed file no longer maps to one route: submit every sitemap URL (about 90).
+          mapfile -t urls < <(curl -s "$SITE/sitemap.xml" | grep -oP '(?<=<loc>)[^<]+')
           printf 'submitting %s urls\n' "${#urls[@]}"
           json=$(printf '"%s",' "${urls[@]}"); json="[${json%,}]"
           curl -sS -X POST "https://api.indexnow.org/indexnow"             -H "Content-Type: application/json; charset=utf-8"             -d "{\"host\":\"solar.streamerosai.com\",\"key\":\"$KEY\",\"keyLocation\":\"$SITE/$KEY.txt\",\"urlList\":$json}"             -w "\nHTTP %{http_code}\n" || true

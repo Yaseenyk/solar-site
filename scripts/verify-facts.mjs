@@ -6,7 +6,7 @@ const blocks = src.split(/\n  [a-zA-Z]+: \{/).slice(1);
 let bad = 0;
 for (const b of blocks) {
   const name = (b.match(/text: "([^"]+)"/) || [])[1] || "(unnamed)";
-  if (!/source: (SQ_2026|SQ_2024|PORTAL|"https?:\/\/)/.test(b)) { console.error("no source:", name); bad++; }
+  if (!/source: ([A-Z_0-9]+|"https?:\/\/)/.test(b)) { console.error("no source:", name); bad++; }
   if (!/checked: CHECKED/.test(b) && !/checked: "\d{4}-\d{2}-\d{2}"/.test(b)) { console.error("no checked date:", name); bad++; }
 }
 if (bad) process.exit(1);

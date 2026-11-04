@@ -22,6 +22,13 @@ export const CONTACT_EMAIL = "contact@streamerosai.com";
 /** Shared Cloudflare worker that stores leads; it allow-lists the origin. */
 export const CONCIERGE_URL = process.env.NEXT_PUBLIC_CONCIERGE_URL ?? "";
 
-/** Not a government site, and the pages must always say so. */
-export const DISCLAIMER =
-  "This is an independent guide, not a government website and not affiliated with MNRE or the PM Surya Ghar portal. Rules and rates change: confirm on the official portal before you pay anyone.";
+/**
+ * Google AdSense. Every ad space on the site is an <AdSlot slot="..."/>.
+ *   "preview": draws a labelled, dashed placeholder where each ad will go (current setting, to review the layout)
+ *   "live":    loads AdSense and fills the slots; needs ADSENSE_CLIENT and, per slot, an ad unit id in AD_UNITS
+ *   "off":     renders nothing visible (the slot names stay in the markup as data-ad-slot)
+ * AdSense also needs public/ads.txt with your publisher line once the account is approved.
+ */
+export const AD_MODE: "preview" | "live" | "off" = "preview";
+export const ADSENSE_CLIENT = ""; // "ca-pub-XXXXXXXXXXXXXXXX"
+export const AD_UNITS: Record<string, string> = {}; // slot name -> AdSense ad unit id (data-ad-slot)

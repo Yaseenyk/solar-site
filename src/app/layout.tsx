@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Fira_Code } from "next/font/google";
-import Link from "next/link";
-import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, VERIFICATION, PORTFOLIO_URL, GA_ID, CLARITY_ID, DISCLAIMER } from "@/lib/site";
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, VERIFICATION, PORTFOLIO_URL, GA_ID, CLARITY_ID, AD_MODE, ADSENSE_CLIENT } from "@/lib/site";
 import { siteGraphJsonLd } from "@/lib/seo";
 import JsonLd from "@/components/JsonLd";
 import "./globals.css";
@@ -42,6 +41,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <script dangerouslySetInnerHTML={{ __html: GA_SNIPPET(GA_ID) }} />
           </>
         )}
+        {AD_MODE === "live" && ADSENSE_CLIENT && (
+          <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`} crossOrigin="anonymous" />
+        )}
         {CLARITY_ID && (
           <script
             dangerouslySetInnerHTML={{
@@ -52,25 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="font-sans">
         <JsonLd data={siteGraphJsonLd} />
-        <header className="border-b border-zinc-800/70">
-          <nav className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-6 py-4 text-sm" aria-label="Main">
-            <Link href="/" className="font-semibold text-zinc-50">☀ {SITE_NAME}</Link>
-            <div className="flex flex-wrap gap-x-5 gap-y-1 text-zinc-400">
-              <Link href="/pm-surya-ghar-subsidy/" className="hover:text-zinc-100">Subsidy</Link>
-              <Link href="/pm-surya-ghar-apply/" className="hover:text-zinc-100">How to apply</Link>
-              <Link href="/pm-surya-ghar-subsidy-status/" className="hover:text-zinc-100">Check status</Link>
-              <Link href="/solar-subsidy-calculator/" className="hover:text-zinc-100">Calculator</Link>
-            </div>
-          </nav>
-        </header>
-        <main className="mx-auto w-full max-w-3xl px-6 py-10">{children}</main>
-        <footer className="mx-auto mt-16 w-full max-w-5xl border-t border-zinc-800/60 px-6 py-10 text-sm text-zinc-500">
-          <p>{DISCLAIMER}</p>
-          <p className="mt-3">
-            © {new Date().getFullYear()} {SITE_NAME}. Written by <a href={`${PORTFOLIO_URL}/`} className="text-zinc-300 underline">Yaseen Khatib</a>. ·{" "}
-            <Link href="/privacy/" className="underline">Privacy</Link>
-          </p>
-        </footer>
+        {children}
       </body>
     </html>
   );
