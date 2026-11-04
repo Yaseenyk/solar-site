@@ -1,0 +1,77 @@
+import type { Metadata } from "next";
+import { Inter, Fira_Code } from "next/font/google";
+import Link from "next/link";
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, VERIFICATION, PORTFOLIO_URL, GA_ID, CLARITY_ID, DISCLAIMER } from "@/lib/site";
+import { siteGraphJsonLd } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
+const firaCode = Fira_Code({ subsets: ["latin"], display: "swap", variable: "--font-mono" });
+
+const TITLE = "PM Surya Ghar Subsidy Guide: Rates, Apply, Status";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: { default: TITLE, template: `%s | ${SITE_NAME}` },
+  description: SITE_DESCRIPTION,
+  authors: [{ name: "Yaseen Khatib", url: PORTFOLIO_URL }],
+  alternates: { canonical: `${SITE_URL}/` },
+  openGraph: { type: "website", title: TITLE, description: SITE_DESCRIPTION, url: SITE_URL, siteName: SITE_NAME, locale: "en_IN" },
+  twitter: { card: "summary", title: TITLE, description: SITE_DESCRIPTION },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
+  verification: {
+    ...(VERIFICATION.google ? { google: VERIFICATION.google } : {}),
+    ...(VERIFICATION.bing ? { other: { "msvalidate.01": VERIFICATION.bing } } : {}),
+  },
+};
+
+// Same first-touch + link-click tag as the other sites, so the analytics dashboard reads this one identically.
+const GA_SNIPPET = (id: string) =>
+  "(function(){var w=window,d=document,q=new URLSearchParams(location.search),st=null;try{st=w.localStorage}catch(e){}function g(k){return q.get(k)||''}var ref=g('ref'),hasUtm=!!g('utm_source');var ft=null;try{ft=JSON.parse(st.getItem('ga_ft')||'null')}catch(e){}if(!ft){var rh='';try{rh=d.referrer?new URL(d.referrer).hostname:''}catch(e){}ft={s:g('utm_source')||ref||rh||'direct',m:g('utm_medium')||(ref?'share':(rh?'referral':'none')),c:g('utm_campaign')||(ref?'ref-tag':'(not set)')};try{st.setItem('ga_ft',JSON.stringify(ft))}catch(e){}}w.dataLayer=w.dataLayer||[];function gtag(){w.dataLayer.push(arguments)}w.gtag=gtag;gtag('js',new Date());var cfg={};if(!hasUtm&&ref){cfg.campaign_source=ref;cfg.campaign_medium='share';cfg.campaign_name='ref-tag'}gtag('config','" +
+  id +
+  "',cfg);w.gaEvent=function(n,p){try{p=p||{};p.first_source=ft.s;p.first_medium=ft.m;p.first_campaign=ft.c;p.cta_page=p.cta_page||location.pathname;gtag('event',n,p)}catch(e){}};d.addEventListener('click',function(e){try{var a=e.target&&e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href')||'',n='';if(/^(https?:)?\\/\\/(wa\\.me|api\\.whatsapp\\.com)|^whatsapp:/i.test(h))n='whatsapp_click';else if(/^mailto:/i.test(h))n='email_click';else if(/^tel:/i.test(h))n='phone_click';if(n)w.gaEvent(n,{cta_text:(a.textContent||'').trim().slice(0,60),link_url:h.slice(0,100)});}catch(x){}},true);})();";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en-IN" className={`${inter.variable} ${firaCode.variable}`}>
+      <head>
+        {GA_ID && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+            <script dangerouslySetInnerHTML={{ __html: GA_SNIPPET(GA_ID) }} />
+          </>
+        )}
+        {CLARITY_ID && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${CLARITY_ID}");`,
+            }}
+          />
+        )}
+      </head>
+      <body className="font-sans">
+        <JsonLd data={siteGraphJsonLd} />
+        <header className="border-b border-zinc-800/70">
+          <nav className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-6 py-4 text-sm" aria-label="Main">
+            <Link href="/" className="font-semibold text-zinc-50">☀ {SITE_NAME}</Link>
+            <div className="flex flex-wrap gap-x-5 gap-y-1 text-zinc-400">
+              <Link href="/pm-surya-ghar-subsidy/" className="hover:text-zinc-100">Subsidy</Link>
+              <Link href="/pm-surya-ghar-apply/" className="hover:text-zinc-100">How to apply</Link>
+              <Link href="/pm-surya-ghar-subsidy-status/" className="hover:text-zinc-100">Check status</Link>
+              <Link href="/solar-subsidy-calculator/" className="hover:text-zinc-100">Calculator</Link>
+            </div>
+          </nav>
+        </header>
+        <main className="mx-auto w-full max-w-3xl px-6 py-10">{children}</main>
+        <footer className="mx-auto mt-16 w-full max-w-5xl border-t border-zinc-800/60 px-6 py-10 text-sm text-zinc-500">
+          <p>{DISCLAIMER}</p>
+          <p className="mt-3">
+            © {new Date().getFullYear()} {SITE_NAME}. Written by <a href={`${PORTFOLIO_URL}/`} className="text-zinc-300 underline">Yaseen Khatib</a>. ·{" "}
+            <Link href="/privacy/" className="underline">Privacy</Link>
+          </p>
+        </footer>
+      </body>
+    </html>
+  );
+}

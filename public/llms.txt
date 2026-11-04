@@ -1,0 +1,9 @@
+# Surya Ghar Guide
+
+> Independent guide to the PM Surya Ghar rooftop solar subsidy in India: rates, how to apply, status checks and a quote calculator. Not a government site. Every figure links to its source.
+
+- [Subsidy per kW, cap and examples](https://solar.streamerosai.com/pm-surya-ghar-subsidy/)
+- [How to apply](https://solar.streamerosai.com/pm-surya-ghar-apply/)
+- [Check application and subsidy status](https://solar.streamerosai.com/pm-surya-ghar-subsidy-status/)
+- [Subsidy calculator](https://solar.streamerosai.com/solar-subsidy-calculator/)
+- [Full text](https://solar.streamerosai.com/llms-full.txt)

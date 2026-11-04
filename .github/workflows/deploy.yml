@@ -1,0 +1,99 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          # Full history: the sitemap takes each page's lastmod from git.
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (static export)
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://solar.streamerosai.com
+          # Lead form storage lives on the shared
+          # Cloudflare worker; it allow-lists this origin.
+          NEXT_PUBLIC_CONCIERGE_URL: https://yaseen-concierge.yaseenyk.workers.dev
+
+      - name: Disable Jekyll
+        run: touch ./out/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  # Tell Bing / IndexNow engines about new and changed pages the moment they
+  # deploy instead of waiting for a recrawl. The key is public by design: it
+  # is served at /<key>.txt. Manual runs submit every sitemap URL; pushes
+  # submit the home page plus any route whose source changed.
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    env:
+      SITE: https://solar.streamerosai.com
+      KEY: 9ee4c39c950c08e91b4dfb74d36a9f36
+    steps:
+      - name: Checkout (with parent commit for the diff)
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+
+      - name: Submit URLs to IndexNow
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            mapfile -t urls < <(curl -s "$SITE/sitemap.xml" | grep -oP '(?<=<loc>)[^<]+')
+          else
+            urls=("$SITE/")
+            for f in $(git diff --name-only HEAD^ HEAD -- src/app 2>/dev/null); do
+              case "$f" in */page.tsx) ;; *) continue;; esac
+              route=$(dirname "${f#src/app}")
+              [ "$route" = "/" ] && continue
+              urls+=("$SITE$route/")
+            done
+          fi
+          printf 'submitting %s urls\n' "${#urls[@]}"
+          json=$(printf '"%s",' "${urls[@]}"); json="[${json%,}]"
+          curl -sS -X POST "https://api.indexnow.org/indexnow"             -H "Content-Type: application/json; charset=utf-8"             -d "{\"host\":\"solar.streamerosai.com\",\"key\":\"$KEY\",\"keyLocation\":\"$SITE/$KEY.txt\",\"urlList\":$json}"             -w "\nHTTP %{http_code}\n" || true
