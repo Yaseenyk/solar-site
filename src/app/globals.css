@@ -19,6 +19,12 @@
     overflow-x: hidden;
     background-color: #05070a;
   }
+  /* 16px inputs: below that, iOS Safari zooms the page when a field is focused. */
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
   ::selection {
     @apply bg-cyan text-ink;
   }
@@ -52,11 +58,15 @@
   .prose-guide a {
     @apply text-cyan underline underline-offset-4;
   }
+  .prose-guide li {
+    @apply [overflow-wrap:anywhere];
+  }
   .prose-guide table {
     @apply mt-4 w-full text-left text-sm;
   }
   .prose-guide th,
   .prose-guide td {
     @apply border-b border-zinc-800 px-3 py-2;
+    min-width: 7rem;
   }
 }

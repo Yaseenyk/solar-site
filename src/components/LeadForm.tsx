@@ -53,7 +53,7 @@ export default function LeadForm({ t, lang, context = "quote-review" }: { t: Ui[
   }
 
   return (
-    <form onSubmit={onSubmit} data-clarity-mask="True" className="grid gap-4 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 sm:p-7">
+    <form onSubmit={onSubmit} data-clarity-mask="True" className="grid gap-4 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-7">
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="text-sm text-zinc-400">{t.name}<input name="name" required autoComplete="name" className={field} /></label>
         <label className="text-sm text-zinc-400">{t.email}<input name="email" type="email" required autoComplete="email" className={field} /></label>
@@ -65,7 +65,7 @@ export default function LeadForm({ t, lang, context = "quote-review" }: { t: Ui[
         <textarea name="message" rows={4} className={field} />
       </label>
       <input name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
-      <button disabled={state === "sending"} className="rounded-lg bg-cyan px-5 py-3 font-semibold text-ink transition hover:opacity-90 disabled:opacity-50">
+      <button disabled={state === "sending"} className="min-h-12 rounded-lg bg-cyan px-5 py-3 font-semibold text-ink transition hover:opacity-90 disabled:opacity-50">
         {state === "sending" ? t.sending : t.submit}
       </button>
       {state === "error" && (

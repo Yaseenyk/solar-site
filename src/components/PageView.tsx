@@ -132,14 +132,14 @@ export default function PageView({ lang, pageKey }: { lang: string; pageKey: Pag
           <p className="font-mono text-sm text-cyan">{c.ui.badge}</p>
         ) : (
           <p className="text-sm text-zinc-500">
-            <Link href={pagePath(lang, "")} className="!text-zinc-500 !no-underline hover:!text-zinc-300">{c.ui.home}</Link> / {p.crumb} · {c.ui.updated} {publishedDate}
+            <Link href={pagePath(lang, "")} className="-ms-2 inline-block px-2 py-2 !text-zinc-500 !no-underline hover:!text-zinc-300">{c.ui.home}</Link> / {p.crumb} · {c.ui.updated} {publishedDate}
           </p>
         )}
-        <h1 className="mt-3 text-3xl font-bold leading-tight text-zinc-50 sm:text-4xl">{p.title}</h1>
-        <div className="mt-5 rounded-xl border border-cyan/30 bg-cyan/5 p-5 leading-relaxed text-zinc-200">
+        <h1 className="mt-3 text-2xl font-bold leading-tight text-zinc-50 [overflow-wrap:anywhere] sm:text-3xl md:text-4xl">{p.title}</h1>
+        <div className="mt-5 rounded-xl border border-cyan/30 bg-cyan/5 p-4 leading-relaxed text-zinc-200 sm:p-5">
           <Rich text={p.answer} lang={lang} />
         </div>
-        {pageKey !== "privacy" && <AdSlot slot={`${pageKey}-hero`} label={c.ui.ad} />}
+        {pageKey !== "privacy" && <AdSlot slot={`${pageKey}-hero`} label={c.ui.ad} desktopOnly />}
 
         {p.blocks.map((b, i) => <BlockView key={i} b={b} lang={lang} i={i} />)}
 

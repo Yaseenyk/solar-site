@@ -24,7 +24,7 @@ export default function Calculator({ t }: { t: Ui["calc"] }) {
   const over = num(kw) > 3;
 
   return (
-    <div className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 sm:p-7" data-calculator>
+    <div className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-7" data-calculator>
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block text-sm text-zinc-400">
           {t.size}
@@ -43,8 +43,8 @@ export default function Calculator({ t }: { t: Ui["calc"] }) {
           <input inputMode="numeric" className={field} value={cut} onChange={(e) => setCut(e.target.value)} />
         </label>
       </div>
-      <label className="mt-4 flex items-start gap-2 text-sm text-zinc-300">
-        <input type="checkbox" checked={special} onChange={(e) => setSpecial(e.target.checked)} className="mt-1 h-4 w-4 shrink-0 accent-cyan" />
+      <label className="mt-3 flex min-h-11 items-start gap-3 py-2 text-sm text-zinc-300">
+        <input type="checkbox" checked={special} onChange={(e) => setSpecial(e.target.checked)} className="mt-0.5 h-5 w-5 shrink-0 accent-cyan" />
         <span>{t.special}</span>
       </label>
       <p id="kw-note" className="mt-2 text-xs text-zinc-500">

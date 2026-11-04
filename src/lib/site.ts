@@ -10,7 +10,7 @@ export const SITE_DESCRIPTION =
   "An independent guide to the PM Surya Ghar rooftop solar subsidy: what you get per kW, how to apply, how to check your status, and a calculator to test a vendor's quote. Every number links to its source.";
 
 /** Search-engine verification codes. Empty strings are omitted from the page. */
-export const VERIFICATION = { google: "", bing: "" };
+export const VERIFICATION = { google: "OG5PRiRPw3I5jB5p-G7nDzf_mlxdiZzrpLaFYCZ0p1M", bing: "" };
 
 /** GA4 measurement ID and Clarity project ID. Create a new GA4 web stream for
  *  solar.streamerosai.com, paste the G- ID here; empty means the tag is not emitted. */
