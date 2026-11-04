@@ -32,6 +32,11 @@ function resolve(token: string): Piece {
       return { text: rupees(benchmarkCost(Number(arg), special)), computed: true };
     case "net":
       return { text: rupees(benchmarkCost(Number(arg), special) - centralSubsidy(Number(arg), special)), computed: true };
+    case "rwa": {
+      // {{rwa:HOUSES:KW}}: society subsidy = rate x lower of (houses x 3 kW) and the plant size, capped at 500 kW.
+      const capacity = Math.min(Number(arg) * FACTS.societyPerHouseKw.value, Number(flag), FACTS.societyMaxKw.value);
+      return { text: rupees(FACTS.societyRate.value * capacity), computed: true };
+    }
     case "link": {
       const f = FACTS[arg as FactKey];
       return { text: String(f.value).replace(/^https?:\/\//, "").replace(/\/$/, ""), href: String(f.value) };

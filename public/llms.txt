@@ -6,6 +6,12 @@
 - [How to apply](https://solar.streamerosai.com/pm-surya-ghar-apply/)
 - [Check application and subsidy status](https://solar.streamerosai.com/pm-surya-ghar-subsidy-status/)
 - [Rooftop solar cost and net cost after subsidy](https://solar.streamerosai.com/solar-system-cost-india-subsidy/)
+- [Scheme details, objectives and last date](https://solar.streamerosai.com/pm-surya-ghar-scheme-details/)
+- [Choosing a registered vendor and the agreement checklist](https://solar.streamerosai.com/pm-surya-ghar-vendor-guide/)
+- [Minimum technical specifications](https://solar.streamerosai.com/rooftop-solar-technical-specifications-india/)
+- [Net metering for rooftop solar](https://solar.streamerosai.com/rooftop-solar-net-metering-india/)
+- [Loans and financing](https://solar.streamerosai.com/pm-surya-ghar-loan-rooftop-solar/)
+- [Housing societies and RWAs](https://solar.streamerosai.com/pm-surya-ghar-housing-society-rwa/)
 - [Subsidy calculator](https://solar.streamerosai.com/solar-subsidy-calculator/)
 - [Full text](https://solar.streamerosai.com/llms-full.txt)
 

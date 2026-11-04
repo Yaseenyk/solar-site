@@ -4,9 +4,11 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
-const DIR = "src/content/i18n";
+// --new: check the translated fragments in _new/ (the extra guides) against _new/en.json instead of the full files.
+const NEW = process.argv.includes("--new");
+const DIR = NEW ? "src/content/i18n/_new" : "src/content/i18n";
 const en = JSON.parse(readFileSync(join(DIR, "en.json"), "utf-8"));
-const wanted = process.argv.slice(2);
+const wanted = process.argv.slice(2).filter((a) => a !== "--new");
 const files = readdirSync(DIR).filter((f) => f.endsWith(".json") && f !== "en.json").filter((f) => !wanted.length || wanted.includes(f.replace(".json", "")));
 
 // keys whose string value must be identical to English (structure, not prose)
@@ -46,7 +48,7 @@ function walk(f, a, b, path, key) {
 for (const file of files) {
   let t;
   try { t = JSON.parse(readFileSync(join(DIR, file), "utf-8")); } catch (e) { err(file, "", `invalid JSON: ${e.message}`); continue; }
-  if (t.meta?.lang !== file.replace(".json", "")) err(file, "meta.lang", "must equal the file name");
+  if (!NEW && t.meta?.lang !== file.replace(".json", "")) err(file, "meta.lang", "must equal the file name");
   walk(file, en, t, "", "");
 }
 if (bad) { console.error(`verify-i18n: ${bad} problem(s)`); process.exit(1); }

@@ -35,6 +35,7 @@ export interface Ui {
   faq: string;
   ad: string;
   language: string;
+  moreGuides: string;
   disclaimer: string;
   written: string;
   privacy: string;

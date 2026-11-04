@@ -35,6 +35,26 @@ export function Sources({ keys, title, checked }: { keys: string[]; title: strin
   );
 }
 
+/** Links to the other guides, so every page leads to the rest of the site. */
+function MoreGuides({ lang, current }: { lang: string; current: PageKey }) {
+  const c = getContent(lang);
+  const skip = new Set<PageKey>([current, "home", "privacy"]);
+  return (
+    <nav className="mt-12 border-t border-zinc-800 pt-6" aria-label={c.ui.moreGuides}>
+      <h2 className="!mt-0 !text-base font-semibold text-zinc-200">{c.ui.moreGuides}</h2>
+      <ul className="mt-3 flex flex-wrap gap-2 !list-none !ps-0">
+        {PAGES.filter((x) => !skip.has(x.key)).map((x) => (
+          <li key={x.key}>
+            <Link href={pagePath(lang, x.slug)} className="block rounded-full border border-zinc-700 px-3 py-1.5 text-sm !text-zinc-300 !no-underline hover:border-cyan hover:!text-cyan">
+              {c.pages[x.key].crumb}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
 function BlockView({ b, lang, i }: { b: Block; lang: string; i: number }) {
   const c = getContent(lang);
   const r = (s: string) => <Rich text={s} lang={lang} />;
@@ -104,7 +124,7 @@ export default function PageView({ lang, pageKey }: { lang: string; pageKey: Pag
   return (
     <Chrome lang={lang} slug={slug}>
       <article className="prose-guide">
-        {!isHome && <JsonLd data={articleJsonLd({ title: p.title, description: p.description, path, published: publishedDate, modified: publishedDate, lang })} />}
+        {!isHome && <JsonLd data={articleJsonLd({ title: p.title, description: plain(p.description), path, published: publishedDate, modified: publishedDate, lang })} />}
         {!isHome && <JsonLd data={breadcrumbJsonLd([{ name: c.ui.home, path: pagePath(lang, "") }, { name: p.crumb, path }])} />}
         {p.faqs.length > 0 && <JsonLd data={faqJsonLd(p.faqs.map((f) => ({ q: plain(f.q), a: plain(f.a) })))} />}
 
@@ -135,6 +155,7 @@ export default function PageView({ lang, pageKey }: { lang: string; pageKey: Pag
           </section>
         )}
         <Sources keys={p.sourceKeys} title={c.ui.sources} checked={c.ui.checked} />
+        <MoreGuides lang={lang} current={pageKey} />
       </article>
     </Chrome>
   );
