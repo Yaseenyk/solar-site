@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/lib/site";
+import { INDEXED_LANGS, SITE_URL } from "@/lib/site";
 import { availableLangs } from "@/lib/content";
 import { PAGES, hreflang, pagePath } from "@/lib/i18n";
 import { routeDate } from "@/lib/lastmod";
@@ -10,7 +10,7 @@ const FALLBACK = "2026-11-04";
 
 /** Every page in every language, each carrying its hreflang alternates. */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const langs = availableLangs();
+  const langs = availableLangs().filter((l) => INDEXED_LANGS.includes(l)); // only languages cleared for indexing
   return PAGES.flatMap((p) =>
     langs.map((lang) => {
       const languages: Record<string, string> = {};

@@ -17,6 +17,13 @@ export const VERIFICATION = { google: "OG5PRiRPw3I5jB5p-G7nDzf_mlxdiZzrpLaFYCZ0p
 export const GA_ID = "G-9F1T1EQZBH";
 export const CLARITY_ID = "";
 
+/**
+ * Languages Google is asked to index. The others stay live for visitors (language switcher) but carry
+ * noindex and are left out of the sitemap and hreflang until a native reader has approved them.
+ * To promote a language, add its code here, e.g. ["en", "hi"], rebuild and push.
+ */
+export const INDEXED_LANGS: readonly string[] = ["en"];
+
 export const CONTACT_EMAIL = "contact@streamerosai.com";
 
 /** Shared Cloudflare worker that stores leads; it allow-lists the origin. */

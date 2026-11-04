@@ -69,7 +69,7 @@
     "home": {
       "title": "How much subsidy will you actually get for rooftop solar?",
       "metaTitle": "PM Surya Ghar Subsidy Guide: Rates, Apply, Status",
-      "description": "An independent guide to the PM Surya Ghar rooftop solar subsidy: what you get per kW, how to apply, how to check your status, and a calculator to test a vendor's quote. Every number links to its source.",
+      "description": "Independent guide to the PM Surya Ghar rooftop solar subsidy: rates per kW, how to apply, status checks and a quote calculator. Every figure is sourced.",
       "crumb": "Home",
       "answer": "Under PM Surya Ghar the central subsidy is {{fact:ratePerKwFirstTwo}} per kW for the first 2 kW and {{fact:rateThirdKw}} for a third kW, so a household gets at most {{fact:maxSubsidy}}. This site shows the arithmetic, the steps, where to log in and what to check, and links every figure to its source.",
       "faqs": [],
@@ -128,7 +128,7 @@
     "subsidy": {
       "title": "PM Surya Ghar Subsidy: Amount per kW, Cap and Examples",
       "metaTitle": "PM Surya Ghar Subsidy: Amount per kW, Cap and Examples",
-      "description": "How much central subsidy PM Surya Ghar pays for 1, 2 and 3 kW rooftop solar, the cap, special category state rates, who is eligible and worked examples, all with sources.",
+      "description": "How much central subsidy PM Surya Ghar pays for 1, 2 and 3 kW rooftop solar, the cap, special state rates, eligibility and worked examples, with sources.",
       "crumb": "Subsidy",
       "answer": "The central subsidy is {{fact:ratePerKwFirstTwo}} per kW for the first 2 kW plus {{fact:rateThirdKw}} for the third kW. Nothing is paid above 3 kW, so the most a household gets is {{fact:maxSubsidy}}. Special category states and UTs get {{fact:specialFirstTwo}} and {{fact:specialThirdKw}}.",
       "faqs": [
@@ -261,7 +261,7 @@
     "cost": {
       "title": "Rooftop Solar Cost in India: Benchmark Price and Net Cost After Subsidy",
       "metaTitle": "Rooftop Solar Cost in India: 1, 2, 3 kW Price After Subsidy",
-      "description": "The Ministry's benchmark cost for 1, 2 and 3 kW rooftop solar, the PM Surya Ghar subsidy, and what you pay after subsidy, with how to judge a vendor's quote.",
+      "description": "The Ministry's benchmark cost for 1, 2 and 3 kW rooftop solar, the subsidy, and what you pay after it, plus how to judge a vendor's quote.",
       "crumb": "Cost",
       "answer": "The Ministry fixed a benchmark cost of {{fact:benchmarkFirstTwo}} per kW for the first 2 kW and {{fact:benchmarkThirdKw}} for the additional kW (from 13 February 2024). A 3 kW system is therefore benchmarked at {{bench:3}}; after the {{sub:3}} subsidy that is {{net:3}}. Real quotes vary with brand, roof and state.",
       "faqs": [
@@ -347,7 +347,7 @@
     "apply": {
       "title": "How to Apply for PM Surya Ghar Rooftop Solar, Step by Step",
       "metaTitle": "How to Apply for PM Surya Ghar: Login, Steps, Documents",
-      "description": "Step-by-step PM Surya Ghar application: where to log in, what you need, how to pick a vendor, upload documents, get the DISCOM inspection and redeem the subsidy.",
+      "description": "Step-by-step PM Surya Ghar application: where to log in, what you need, choosing a vendor, uploading documents, DISCOM inspection and the subsidy.",
       "crumb": "How to apply",
       "answer": "Log in at {{link:consumerLogin}} with your mobile number (OTP), register your electricity consumer number, apply, pick a registered vendor, get the system installed, upload the documents and photos, wait for the DISCOM inspection, then redeem the e-token. The subsidy is processed within {{num:claimDays}} days of DISCOM approval.",
       "faqs": [
@@ -476,7 +476,7 @@
     },
     "status": {
       "title": "PM Surya Ghar Subsidy Status: How to Check Your Application",
-      "metaTitle": "PM Surya Ghar Subsidy Status: How to Check, What Each Stage Means",
+      "metaTitle": "PM Surya Ghar Subsidy Status: How to Check Yours",
       "description": "How to check your PM Surya Ghar application and subsidy status, what each stage means, who is responsible, and what to do if the file is stuck.",
       "crumb": "Check status",
       "answer": "Log in at {{link:consumerLogin}} with your registered mobile number and open your profile. Your application stage and your e-token are shown there. This site cannot see your application, and nobody else can check it for you.",
@@ -595,7 +595,7 @@
     },
     "calculator": {
       "title": "Rooftop Solar Subsidy Calculator: Cost After Subsidy and Payback",
-      "metaTitle": "Rooftop Solar Subsidy Calculator: Cost After Subsidy and Payback",
+      "metaTitle": "Rooftop Solar Subsidy Calculator and Payback",
       "description": "Enter your system size and a vendor's quote to see the PM Surya Ghar central subsidy, the cost after subsidy and a payback estimate. Runs in your browser.",
       "crumb": "Calculator",
       "answer": "Enter the size, the quote and your bill. The subsidy comes from the official rates; the payback uses your own estimate of how much of the bill the system removes.",
@@ -685,7 +685,7 @@
     },
     "scheme": {
       "title": "PM Surya Ghar Yojana: Scheme Details, Objectives, Last Date and Rules",
-      "metaTitle": "PM Surya Ghar Yojana Details: Objectives, Last Date, Who Can Apply",
+      "metaTitle": "PM Surya Ghar Yojana: Details, Last Date, Eligibility",
       "description": "What PM Surya Ghar Muft Bijli Yojana is, its aim of one crore homes, the scheme period, who can and cannot get the subsidy, and your rights on the portal.",
       "crumb": "Scheme details",
       "answer": "PM Surya Ghar: Muft Bijli Yojana pays a central subsidy to households that install a grid-connected rooftop solar system. It aims at {{fact:targetHomes}} installations, applications count from {{fact:startDate}}, and the implementation period in the Ministry's guideline runs until {{fact:schemeEnd}}. It is fund-limited: the portal takes only {{fact:activeApplicationLimit}} active applications.",
@@ -813,8 +813,8 @@
     },
     "vendor": {
       "title": "Registered Vendors Under PM Surya Ghar: How to Choose and What to Put in the Agreement",
-      "metaTitle": "PM Surya Ghar Vendor List: How to Choose a Registered Vendor",
-      "description": "How to pick a registered rooftop solar vendor on the PM Surya Ghar portal, what the vendor must provide for {{num:cmcYears}} years, and a checklist for the vendor agreement.",
+      "metaTitle": "PM Surya Ghar Vendor List: How to Choose",
+      "description": "How to pick a registered rooftop solar vendor on the PM Surya Ghar portal, what they must provide for {{num:cmcYears}} years, and an agreement checklist.",
       "crumb": "Choose a vendor",
       "answer": "You can claim the subsidy only if you use a vendor registered on the national portal. Compare the vendors' profiles, prices and ratings there, get at least three written quotes, and sign an agreement that covers the points below. A registered vendor must repair and maintain the system free for {{num:cmcYears}} years.",
       "faqs": [
@@ -944,8 +944,8 @@
     },
     "specs": {
       "title": "Rooftop Solar Technical Specifications Under PM Surya Ghar: What Your Quote Must Include",
-      "metaTitle": "PM Surya Ghar Technical Specifications: Modules, Inverter, Warranty",
-      "description": "The Ministry's minimum technical specifications for subsidised rooftop solar: components, module standards, warranty, structure clearance and performance, as a checklist for your quote.",
+      "metaTitle": "PM Surya Ghar Technical Specifications Checklist",
+      "description": "The Ministry's minimum technical specifications for subsidised rooftop solar, as a checklist for your quote: modules, warranty, clearances, performance.",
       "crumb": "Technical specifications",
       "answer": "A subsidised system must follow the Ministry's minimum technical specifications, which the DISCOM also checks at inspection. Key points: domestic modules from domestic cells on the approved list, a module defect warranty of at least {{num:moduleWarrantyYears}} years, {{num:cmcYears}} years of maintenance, and a performance ratio of {{num:performanceRatio}}% at commissioning.",
       "faqs": [
@@ -1059,7 +1059,7 @@
     "metering": {
       "title": "Net Metering for Rooftop Solar in India: How It Works Under PM Surya Ghar",
       "metaTitle": "Net Metering for Rooftop Solar in India Under PM Surya Ghar",
-      "description": "How the meter step works for subsidised rooftop solar: who installs the net meter, which metering arrangements are covered, smart meters, the agreement and what to ask your vendor.",
+      "description": "How the meter step works for subsidised rooftop solar: who installs the net meter, which arrangements count, smart meters and what to ask your vendor.",
       "crumb": "Net metering",
       "answer": "After your rooftop system is installed, the DISCOM installs the meter and signs a metering agreement with you under your state's rules. The net meter comes from the DISCOM, or you can buy one from an enlisted meter vendor. The subsidy is processed only after the DISCOM has physically verified the system.",
       "faqs": [
@@ -1069,7 +1069,7 @@
         },
         {
           "q": "Do I need net metering to get the subsidy?",
-          "a": "Your system must be grid-connected and the metering arrangement approved by your state regulator is covered. Systems connected to the grid but not feeding into it, such as behind-the-meter or battery hybrid systems, can also qualify with regulator approval. Off-grid systems cannot."
+          "a": "Your system must be grid-connected, but you do not need one particular kind of metering: any metering arrangement approved by your state regulator is covered. Systems connected to the grid that do not feed power into it, such as behind-the-meter or battery hybrid systems, can also qualify with regulator approval. Off-grid systems cannot."
         },
         {
           "q": "Do I need DISCOM approval before I install?",
@@ -1171,7 +1171,7 @@
     "loan": {
       "title": "Loan for Rooftop Solar Under PM Surya Ghar: How Financing and the Subsidy Work Together",
       "metaTitle": "PM Surya Ghar Loan: Rooftop Solar Financing and Subsidy",
-      "description": "How to finance a subsidised rooftop solar system: the portal's loan products, the expected low-interest loans, how the subsidy is paid into a loan account, and what to ask your bank.",
+      "description": "How to finance subsidised rooftop solar: the portal's loan products, expected low-interest loans, and how the subsidy reaches your loan account.",
       "crumb": "Loan and financing",
       "answer": "You pay for the system first, so many households take a loan. The portal lists loan products from banks and financial institutions through the Jan Samarth portal, and the guideline expects low-interest loans at about the repo rate plus 0.5% for systems up to 3 kW. If you take a loan, the subsidy is paid into your loan account first.",
       "faqs": [
@@ -1266,8 +1266,8 @@
     },
     "rwa": {
       "title": "PM Surya Ghar for Housing Societies and RWAs: Subsidy, Rules and Examples",
-      "metaTitle": "PM Surya Ghar for Housing Societies and RWAs: Subsidy and Rules",
-      "description": "How much subsidy a housing society or RWA gets for rooftop solar on common facilities, how it is capped, which societies qualify and worked examples from the guideline.",
+      "metaTitle": "PM Surya Ghar for Housing Societies and RWAs",
+      "description": "How much subsidy a housing society or RWA gets for rooftop solar on common facilities, the cap, which societies qualify and the Ministry's worked examples.",
       "crumb": "Housing societies and RWAs",
       "answer": "A housing society or RWA gets {{fact:societyRate}} per kW for rooftop solar on common facilities (lifts, lights, pumps, EV charging), counted at {{num:societyPerHouseKw}} kW per house and up to {{num:societyMaxKw}} kW. In special category states and UTs the rate is {{fact:societySpecialRate}} per kW.",
       "faqs": [
