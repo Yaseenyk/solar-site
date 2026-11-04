@@ -36,6 +36,6 @@ export const CONCIERGE_URL = process.env.NEXT_PUBLIC_CONCIERGE_URL ?? "";
  *   "off":     renders nothing visible (the slot names stay in the markup as data-ad-slot)
  * AdSense also needs public/ads.txt with your publisher line once the account is approved.
  */
-export const AD_MODE: "preview" | "live" | "off" = "preview";
+export const AD_MODE: "preview" | "live" | "off" = "off"; // off until AdSense approves the site; then "live" with AD_UNITS filled in
 export const ADSENSE_CLIENT = ""; // "ca-pub-XXXXXXXXXXXXXXXX"
 export const AD_UNITS: Record<string, string> = {}; // slot name -> AdSense ad unit id (data-ad-slot)
