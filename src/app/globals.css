@@ -33,6 +33,13 @@
       scroll-behavior: auto;
     }
   }
+  /* Indic and other non-Latin headings need more line height than the tight Latin one: the vowel signs above and below the line
+     collided with the next line (seen in Hindi). Applies to every language except English. */
+  :lang(hi) :is(h1, h2, h3), :lang(mr) :is(h1, h2, h3), :lang(gu) :is(h1, h2, h3), :lang(bn) :is(h1, h2, h3), :lang(te) :is(h1, h2, h3),
+  :lang(ta) :is(h1, h2, h3), :lang(kn) :is(h1, h2, h3), :lang(ml) :is(h1, h2, h3), :lang(pa) :is(h1, h2, h3), :lang(or) :is(h1, h2, h3),
+  :lang(as) :is(h1, h2, h3), :lang(ur) :is(h1, h2, h3) {
+    line-height: 1.4;
+  }
 }
 
 @layer components {

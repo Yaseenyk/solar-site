@@ -22,7 +22,7 @@ export const CLARITY_ID = "z8kbf63t9o";
  * noindex and are left out of the sitemap and hreflang until a native reader has approved them.
  * To promote a language, add its code here, e.g. ["en", "hi"], rebuild and push.
  */
-export const INDEXED_LANGS: readonly string[] = ["en"];
+export const INDEXED_LANGS: readonly string[] = ["en", "hi", "mr", "gu"]; // promoted 10 Nov 2026 at the owner's request, before a native-reader review
 
 export const CONTACT_EMAIL = "contact@streamerosai.com";
 
