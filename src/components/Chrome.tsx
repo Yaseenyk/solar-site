@@ -60,6 +60,12 @@ export default function Chrome({ lang, slug, children }: { lang: string; slug: s
           © {new Date().getFullYear()} {c.ui.siteName}. {c.ui.written} <a href={`${PORTFOLIO_URL}/`} className="text-zinc-300 underline">Yaseen Khatib</a> ·{" "}
           <Link href={pagePath(lang, "privacy")} className="inline-block py-2 underline">{c.ui.privacy}</Link>
         </p>
+        <p className="mt-1 leading-relaxed" lang="en" dir="ltr">
+          {/* The trust pages are English only (see /about/); the links look the same in every language. */}
+          <Link href="/about/" className="inline-block py-2 underline">About</Link> ·{" "}
+          <Link href="/contact/" className="inline-block py-2 underline">Contact</Link> ·{" "}
+          <Link href="/terms/" className="inline-block py-2 underline">Terms</Link>
+        </p>
       </footer>
     </div>
   );

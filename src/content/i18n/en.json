@@ -670,7 +670,7 @@
         },
         {
           "t": "p",
-          "x": "Google Analytics counts visits and clicks, including which site or campaign sent you. Microsoft Clarity may record anonymised sessions (clicks and scrolling); text typed into forms is masked. Both set cookies or local storage. Block them in your browser if you prefer."
+          "x": "Google Analytics counts visits and clicks, including which site or campaign sent you. Microsoft Clarity may record anonymised sessions (clicks and scrolling); text typed into forms is masked. Both set cookies or local storage. Block them in your browser if you prefer. A small counter run by me, with no cookies, also records page views, the page you came from and link clicks; it stores no IP address, name or anything you type, deletes records after 90 days, and switches itself off if your browser sends Do Not Track or Global Privacy Control."
         },
         {
           "t": "h2",

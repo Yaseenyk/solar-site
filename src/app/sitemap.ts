@@ -9,9 +9,12 @@ export const dynamic = "force-static";
 const FALLBACK = "2026-11-04";
 
 /** Every page in every language, each carrying its hreflang alternates. */
+const TRUST = ["about", "contact", "terms"]; // English-only pages, no translations and no hreflang
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const langs = availableLangs().filter((l) => INDEXED_LANGS.includes(l)); // only languages cleared for indexing
-  return PAGES.flatMap((p) =>
+  const trust: MetadataRoute.Sitemap = TRUST.map((slug) => ({ url: `${SITE_URL}/${slug}/`, lastModified: "2026-11-16", changeFrequency: "yearly" as const, priority: 0.2 }));
+  return [...trust, ...PAGES.flatMap((p) =>
     langs.map((lang) => {
       const languages: Record<string, string> = {};
       for (const l of langs) languages[hreflang(l)] = `${SITE_URL}${pagePath(l, p.slug)}`;
@@ -24,5 +27,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
         alternates: { languages },
       };
     }),
-  );
+  )];
 }
