@@ -10,6 +10,7 @@ import { benchmarkCost, centralSubsidy } from "@/lib/subsidy";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
 import { getContent, publishedDate, type Block } from "@/lib/content";
 import { pagePath, PAGES, type PageKey } from "@/lib/i18n";
+import { EN_EXTRA } from "@/content/en-extra";
 
 const th = "border-b border-zinc-700 px-3 py-2 text-start font-semibold text-zinc-300";
 const td = "border-b border-zinc-800 px-3 py-2 align-top";
@@ -121,18 +122,24 @@ export default function PageView({ lang, pageKey }: { lang: string; pageKey: Pag
   const slug = PAGES.find((x) => x.key === pageKey)!.slug;
   const path = pagePath(lang, slug);
   const isHome = pageKey === "home";
+  // English-only sections (src/content/en-extra.ts). Other languages render their JSON content unchanged.
+  const extra = lang === "en" ? EN_EXTRA[pageKey] : undefined;
+  const blocks = extra ? [...p.blocks.slice(0, extra.after + 1), ...extra.blocks, ...p.blocks.slice(extra.after + 1)] : p.blocks;
+  const faqs = extra?.faqs ? [...p.faqs, ...extra.faqs] : p.faqs;
+  const sourceKeys = extra ? [...p.sourceKeys, ...extra.sourceKeys] : p.sourceKeys;
+  const updated = extra && extra.updated > publishedDate ? extra.updated : publishedDate;
   return (
     <Chrome lang={lang} slug={slug}>
       <article className="prose-guide">
-        {!isHome && <JsonLd data={articleJsonLd({ title: p.title, description: plain(p.description), path, published: publishedDate, modified: publishedDate, lang })} />}
+        {!isHome && <JsonLd data={articleJsonLd({ title: p.title, description: plain(p.description), path, published: publishedDate, modified: updated, lang })} />}
         {!isHome && <JsonLd data={breadcrumbJsonLd([{ name: c.ui.home, path: pagePath(lang, "") }, { name: p.crumb, path }])} />}
-        {p.faqs.length > 0 && <JsonLd data={faqJsonLd(p.faqs.map((f) => ({ q: plain(f.q), a: plain(f.a) })))} />}
+        {faqs.length > 0 && <JsonLd data={faqJsonLd(faqs.map((f) => ({ q: plain(f.q), a: plain(f.a) })))} />}
 
         {isHome ? (
           <p className="font-mono text-sm text-cyan">{c.ui.badge}</p>
         ) : (
           <p className="text-sm text-zinc-500">
-            <Link href={pagePath(lang, "")} className="-ms-2 inline-block px-2 py-2 !text-zinc-500 !no-underline hover:!text-zinc-300">{c.ui.home}</Link> / {p.crumb} · {c.ui.updated} {publishedDate}
+            <Link href={pagePath(lang, "")} className="-ms-2 inline-block px-2 py-2 !text-zinc-500 !no-underline hover:!text-zinc-300">{c.ui.home}</Link> / {p.crumb} · {c.ui.updated} {updated}
           </p>
         )}
         <h1 className="mt-3 text-2xl font-bold leading-tight text-zinc-50 [overflow-wrap:anywhere] sm:text-3xl md:text-4xl">{p.title}</h1>
@@ -141,12 +148,12 @@ export default function PageView({ lang, pageKey }: { lang: string; pageKey: Pag
         </div>
         {pageKey !== "privacy" && <AdSlot slot={`${pageKey}-hero`} label={c.ui.ad} desktopOnly />}
 
-        {p.blocks.map((b, i) => <BlockView key={i} b={b} lang={lang} i={i} />)}
+        {blocks.map((b, i) => <BlockView key={i} b={b} lang={lang} i={i} />)}
 
-        {p.faqs.length > 0 && (
+        {faqs.length > 0 && (
           <section>
             <h2>{c.ui.faq}</h2>
-            {p.faqs.map((f) => (
+            {faqs.map((f) => (
               <div key={f.q}>
                 <h3><Rich text={f.q} lang={lang} /></h3>
                 <p><Rich text={f.a} lang={lang} /></p>
@@ -154,7 +161,7 @@ export default function PageView({ lang, pageKey }: { lang: string; pageKey: Pag
             ))}
           </section>
         )}
-        <Sources keys={p.sourceKeys} title={c.ui.sources} checked={c.ui.checked} />
+        <Sources keys={sourceKeys} title={c.ui.sources} checked={c.ui.checked} />
         <MoreGuides lang={lang} current={pageKey} />
       </article>
     </Chrome>

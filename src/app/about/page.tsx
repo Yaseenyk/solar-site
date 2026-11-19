@@ -53,7 +53,7 @@ export default function Page() {
       </p>
 
       <h2>Where the figures come from</h2>
-      <p>The guide relies on the Ministry of New and Renewable Energy (MNRE) operational guidelines and the official portal, plus a trade publication for the launch details. Each source below is listed with what was taken from it.</p>
+      <p>The guide relies on the Ministry of New and Renewable Energy (MNRE) operational guidelines and the official portal. Each source below is listed with what was taken from it.</p>
       {sources.map(([url, s]) => (
         <section key={url}>
           <h3>
@@ -69,7 +69,7 @@ export default function Page() {
 
       <h2>Languages</h2>
       <p>
-        The guide is published in English and twelve Indian languages: Hindi, Bengali, Marathi, Telugu, Tamil, Gujarati, Kannada, Malayalam, Punjabi, Odia, Assamese and Urdu. A translation changes the words, never the figures: an automated check compares every translated page with the English one and fails the build if a number, link or table differs. Each language was opened to search engines only after native readers had confirmed the translation reads correctly. If you find a translation error, tell me and I will fix it. This About page, the contact page and the terms are in English only.
+        The guide is published in English and twelve Indian languages: Hindi, Bengali, Marathi, Telugu, Tamil, Gujarati, Kannada, Malayalam, Punjabi, Odia, Assamese and Urdu. A translation changes the words, never the figures: an automated check compares every translated page with the English one and fails the build if a number, link or table differs. Each language was opened to search engines only after native readers had confirmed the translation reads correctly. If you find a translation error, tell me and I will fix it. This About page, the contact page and the terms are in English only, and so are a few newer sections on the English home and calculator pages: they will appear in the other languages only after a native reader has translated them, never as machine translation.
       </p>
 
       <h2>Money</h2>

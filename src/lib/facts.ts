@@ -12,9 +12,11 @@ export interface Fact {
   checked: string;
 }
 
-const CHECKED = "2026-11-04";
-const SQ_2026 = "https://solarquarter.com/2026/09/01/pm-surya-ghar-scheme-mnre-details-rooftop-solar-subsidy-guidelines-for-residential-consumers/";
-const SQ_2024 = "https://solarquarter.com/2024/03/18/india-launches-pm-surya-ghar-muft-bijli-yojana-with-%e2%82%b975021-crore-outlay-for-rooftop-solar-power-adoption";
+// Re-checked 19 Nov 2026: every GUIDE figure was re-read in the PDF below (fetched that day), and the residential
+// rates, the 78,000 cap, the GHS/RWA rate and limits, the extra 10% for special states, the 1 crore target and the
+// 31 March 2027 closing date matched the text of the live national portal (pmsuryaghar.gov.in). mnre.gov.in timed
+// out, so an amendment published only there after June 2024 could not be checked. Log: docs/adsense-changes-2026-11-19.md.
+const CHECKED = "2026-11-19";
 const PORTAL = "https://pmsuryaghar.gov.in/";
 const LOGIN = "https://consumer.pmsuryaghar.gov.in/consumer/";
 // The Ministry's own operational guidelines (7 June 2024). The PDF is a copy hosted by JBVNL, a state DISCOM.
@@ -67,29 +69,29 @@ export const FACTS = {
   outlayCrore: {
     text: "Total outlay of the scheme, in rupees crore",
     value: 75021,
-    source: SQ_2024,
-    sourceName: "SolarQuarter, 18 Mar 2024",
+    source: GUIDE,
+    sourceName: GUIDE_NAME + ", section 1(a) and 1(b)",
     checked: CHECKED,
   },
   targetHomes: {
     text: "Target: households with rooftop solar by FY 2026-27",
     value: "one crore (10 million)",
-    source: SQ_2026,
-    sourceName: "SolarQuarter, 1 Sep 2026, summarising MNRE guidelines",
+    source: GUIDE,
+    sourceName: GUIDE_NAME + ", sections 1(a) and 3(a)",
     checked: CHECKED,
   },
   cabinetApproval: {
-    text: "Union Cabinet approval date",
+    text: "Date the Government of India approved the scheme",
     value: "29 February 2024",
-    source: SQ_2026,
-    sourceName: "SolarQuarter, 1 Sep 2026 (other reports give 15 Feb 2024 for the launch)",
+    source: GUIDE,
+    sourceName: GUIDE_NAME + ", section 1(a) (applications count from the 13 Feb 2024 launch)",
     checked: CHECKED,
   },
   capexOnly: {
     text: "The residential subsidy applies to the capex model: you pay the installation cost first",
     value: "capex model",
-    source: SQ_2026,
-    sourceName: "SolarQuarter, 1 Sep 2026, summarising MNRE guidelines",
+    source: GUIDE,
+    sourceName: GUIDE_NAME + ", section 2(a)",
     checked: CHECKED,
   },
   domesticContent: {
@@ -252,6 +254,13 @@ export const FACTS = {
     source: GUIDE,
     sourceName: GUIDE_NAME + ", section 4(a)",
     checked: CHECKED,
+  },
+  sizeByUnits: {
+    text: "Plant size the national portal suggests for a household, by average monthly consumption",
+    value: "0 to 150 units a month: 1 to 2 kW; 150 to 300 units: 2 to 3 kW; above 300 units: above 3 kW",
+    source: PORTAL,
+    sourceName: "National Portal for Rooftop Solar, MNRE (table on the home page)",
+    checked: "2026-11-19",
   },
   officialPortal: {
     text: "Official national portal for applications",
