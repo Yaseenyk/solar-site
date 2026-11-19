@@ -68,7 +68,7 @@ function BlockView({ b, lang, i }: { b: Block; lang: string; i: number }) {
     case "ol": return <ol>{b.items.map((x, j) => <li key={j}>{r(x)}</li>)}</ol>;
     case "calculator": return <Calculator t={c.ui.calc} />;
     case "form": return <LeadForm t={c.ui.form} lang={lang} context={b.ctx} />;
-    case "ad": return <AdSlot slot={b.slot} label={c.ui.ad} />;
+    case "ad": return <AdSlot slot={b.slot} label={c.ui.ad} lang={lang} />;
     case "subsidyTable":
       return (
         <div className="overflow-x-auto">
@@ -146,7 +146,7 @@ export default function PageView({ lang, pageKey }: { lang: string; pageKey: Pag
         <div className="mt-5 rounded-xl border border-cyan/30 bg-cyan/5 p-4 leading-relaxed text-zinc-200 sm:p-5">
           <Rich text={p.answer} lang={lang} />
         </div>
-        {pageKey !== "privacy" && <AdSlot slot={`${pageKey}-hero`} label={c.ui.ad} desktopOnly />}
+        {pageKey !== "privacy" && <AdSlot slot={`${pageKey}-hero`} label={c.ui.ad} lang={lang} desktopOnly />}
 
         {blocks.map((b, i) => <BlockView key={i} b={b} lang={lang} i={i} />)}
 

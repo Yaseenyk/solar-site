@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Fira_Code } from "next/font/google";
-import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, VERIFICATION, PORTFOLIO_URL, GA_ID, CLARITY_ID, AD_MODE, ADSENSE_CLIENT } from "@/lib/site";
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, VERIFICATION, PORTFOLIO_URL, GA_ID, CLARITY_ID } from "@/lib/site";
 import { siteGraphJsonLd } from "@/lib/seo";
 import JsonLd from "@/components/JsonLd";
 import "./globals.css";
@@ -39,9 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script defer src="https://pulse.yaseenyk.workers.dev/p.js" data-site="solar.streamerosai.com" />
         {GA_ID && <script dangerouslySetInnerHTML={{ __html: analyticsScript(GA_ID, CLARITY_ID ? clarityLoader(CLARITY_ID) : "") }} />}
-        {AD_MODE === "live" && ADSENSE_CLIENT && (
-          <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`} crossOrigin="anonymous" />
-        )}
+        {/* The AdSense loader is not here: components/AdScript.tsx renders it per page, only for AdSense-supported languages. */}
       </head>
       <body className="font-sans">
         <JsonLd data={siteGraphJsonLd} />

@@ -3,6 +3,7 @@ import { getContent, availableLangs } from "@/lib/content";
 import { pagePath, hreflang } from "@/lib/i18n";
 import { PORTFOLIO_URL } from "@/lib/site";
 import NavLinks from "./NavLinks";
+import AdScript from "./AdScript";
 
 /**
  * Header, language switcher and footer around a page. The wrapper carries the page's language and direction.
@@ -21,6 +22,7 @@ export default function Chrome({ lang, slug, children }: { lang: string; slug: s
   ];
   return (
     <div lang={hreflang(lang)} dir={c.meta.dir} className="overflow-x-clip">
+      <AdScript lang={lang} />
       <header className="relative border-b border-zinc-800/70">
         <nav className="mx-auto flex max-w-5xl flex-wrap items-center gap-x-3 px-4 sm:px-6" aria-label="Main">
           <Link href={pagePath(lang, "")} className="order-1 inline-flex min-h-11 items-center rounded-md py-1 font-semibold text-zinc-50 outline-none focus-visible:ring-2 focus-visible:ring-cyan">

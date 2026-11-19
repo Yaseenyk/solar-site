@@ -39,3 +39,17 @@ export const CONCIERGE_URL = process.env.NEXT_PUBLIC_CONCIERGE_URL ?? "";
 export const AD_MODE: "preview" | "live" | "off" = "off"; // off until AdSense approves the site; then "live" with AD_UNITS filled in
 export const ADSENSE_CLIENT = ""; // "ca-pub-XXXXXXXXXXXXXXXX"
 export const AD_UNITS: Record<string, string> = {}; // slot name -> AdSense ad unit id (data-ad-slot)
+
+/**
+ * Languages AdSense supports, from Google's list at https://support.google.com/adsense/answer/9727 (checked 2026-11-19).
+ * An explicit allow-list: a page whose language is not here never gets the AdSense script or an ad slot, whatever
+ * AD_MODE says. Of this site's 13 languages, Odia ("or") and Assamese ("as") are not on Google's list, so their pages
+ * stay ad-free (they remain indexed: they are real translations). scripts/verify-ad-langs.mjs fails the build if a
+ * built page in any other language contains ad code. Add a code only after Google lists the language.
+ */
+export const ADSENSE_LANGS: readonly string[] = ["en", "hi", "mr", "gu", "bn", "ta", "te", "kn", "ml", "pa", "ur"];
+
+/** True only for languages on the allow-list above. Every ad code path checks this. */
+export function adsAllowed(lang: string): boolean {
+  return ADSENSE_LANGS.includes(lang);
+}

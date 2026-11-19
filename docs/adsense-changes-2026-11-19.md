@@ -50,3 +50,41 @@ How the English-only text works: `src/content/en-extra.ts` holds the new blocks 
 1. Decide on the non-English calculator pages (translate the new section or noindex them).
 2. Skim the new English sections on the home and calculator pages.
 3. Check mnre.gov.in for any amendment to the PM Surya Ghar guidelines after June 2024.
+
+## 5. Ad code gated by language (second change, 19 Nov 2026)
+
+Ads stay OFF (`AD_MODE = "off"`, empty `ADSENSE_CLIENT`); this change only makes sure that, when ads are switched on later, they can never appear on a page in a language AdSense does not support.
+
+AdSense supported languages, read from https://support.google.com/adsense/answer/9727 on 19 Nov 2026, against the site's 13:
+
+| Code | Language | On Google's list? |
+|---|---|---|
+| en | English | Yes |
+| hi | Hindi | Yes |
+| mr | Marathi | Yes |
+| gu | Gujarati | Yes |
+| bn | Bengali | Yes ("Bengali (Bangla)") |
+| ta | Tamil | Yes |
+| te | Telugu | Yes |
+| kn | Kannada | Yes |
+| ml | Malayalam | Yes |
+| pa | Punjabi | Yes |
+| ur | Urdu | Yes |
+| or | Odia | **No** |
+| as | Assamese | **No** |
+
+What changed:
+
+- `src/lib/site.ts`: new explicit allow-list `ADSENSE_LANGS` (the 11 supported codes, with the source URL and check date) and `adsAllowed(lang)`.
+- The AdSense loader moved out of the root layout (which cannot know the page language) into `src/components/AdScript.tsx`, rendered per page by `Chrome` with the page's `lang`. It renders only when `AD_MODE === "live"`, `ADSENSE_CLIENT` is set and the language is on the allow-list.
+- `AdSlot` now takes `lang` and returns nothing for a language not on the list, in every mode (off, preview, live). Odia and Assamese pages no longer carry even the empty `data-ad-slot` placeholders.
+- New `scripts/verify-ad-langs.mjs`, run at the end of `npm run build` (so in CI on every deploy) and as `npm run check:ad-langs`. It works out the unsupported languages from `LANG_ORDER` minus `ADSENSE_LANGS`, finds each built page's language by folder and by the content wrapper's `lang` attribute, and fails if any such `.html` or RSC `.txt` file contains `adsbygoogle`, `pagead2.`, `googlesyndication`, `data-ad-client` or `data-ad-slot`. It also fails if `or` or `as` is ever added to the allow-list, or if it finds no pages for the unsupported languages (broken detection).
+
+Indexing unchanged: Odia and Assamese pages stay `index, follow` and in the sitemap with hreflang. Google's documentation says unsupported-language pages cannot show ads; it does not say they must be removed, and they are real translations.
+
+Checks:
+
+- Run against the build from before the change, the new check failed (Assamese and Odia pages had `data-ad-slot` placeholders), so it does catch ad markup.
+- `npm run build` passes: `verify-ad-langs: 52 built files in or, as (not AdSense-supported) carry no ad code` (13 pages x 2 languages x HTML and RSC payload). `npm run lint` passes.
+- `out/index.html` and `out/hi/index.html`: 6 `data-ad-slot` placeholders (off mode, as before), no `pagead2`. `out/or/index.html`, `out/as/solar-subsidy-calculator/index.html`: 0 placeholders, no `pagead2`, robots `index, follow`.
+- Not tested: a build with `AD_MODE = "live"`, because ads must not be switched on, even locally. The gate is a plain early return before any live branch, in both components.

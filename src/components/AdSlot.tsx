@@ -1,4 +1,4 @@
-import { AD_MODE, ADSENSE_CLIENT, AD_UNITS } from "@/lib/site";
+import { AD_MODE, ADSENSE_CLIENT, AD_UNITS, adsAllowed } from "@/lib/site";
 import AdUnit from "./AdUnit";
 
 /**
@@ -6,7 +6,9 @@ import AdUnit from "./AdUnit";
  * The box reserves its height up front so a late-loading ad never shifts the text (layout shift hurts Core Web Vitals).
  * Keep ads away from buttons and form fields: AdSense policy forbids placements that invite accidental clicks.
  */
-export default function AdSlot({ slot, label, desktopOnly = false }: { slot: string; label: string; desktopOnly?: boolean }) {
+export default function AdSlot({ slot, label, lang, desktopOnly = false }: { slot: string; label: string; lang: string; desktopOnly?: boolean }) {
+  // A language AdSense does not support (Odia, Assamese) gets no slot at all, in any AD_MODE.
+  if (!adsAllowed(lang)) return null;
   // desktopOnly: on phones this slot is not drawn, so the first screen shows content, not an ad.
   const hide = desktopOnly ? "hidden sm:block" : "";
   if (AD_MODE === "off") return <div data-ad-slot={slot} aria-hidden="true" />;
