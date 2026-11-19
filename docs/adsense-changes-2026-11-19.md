@@ -88,3 +88,22 @@ Checks:
 - `npm run build` passes: `verify-ad-langs: 52 built files in or, as (not AdSense-supported) carry no ad code` (13 pages x 2 languages x HTML and RSC payload). `npm run lint` passes.
 - `out/index.html` and `out/hi/index.html`: 6 `data-ad-slot` placeholders (off mode, as before), no `pagead2`. `out/or/index.html`, `out/as/solar-subsidy-calculator/index.html`: 0 placeholders, no `pagead2`, robots `index, follow`.
 - Not tested: a build with `AD_MODE = "live"`, because ads must not be switched on, even locally. The gate is a plain early return before any live branch, in both components.
+
+## Privacy and crawl audit (19 Nov 2026)
+
+Method: / and /hi/ loaded in headless Chromium with every third-party request and cookie recorded, /ml/ and
+/mr/pm-surya-ghar-subsidy/ fetched raw, and `src/app/layout.tsx` read (not edited) for scripts injected later.
+
+- Loaded on solar.streamerosai.com: Google Analytics 4 (googletagmanager.com, analytics.google.com,
+  stats.g.doubleclick.net; cookies `_ga`, `_ga_9F1T1EQZBH`), Microsoft Clarity (clarity.ms, c.bing.com; cookies `_clck`,
+  `_clsk`, plus Microsoft's `MUID`/`MR`/`SM`), Pulse (pulse.yaseenyk.workers.dev, no cookies). No AdSense request
+  (`ADSENSE_CLIENT` is empty, so the gated loader stays off), no Google Fonts request.
+- Privacy page fixed (English, `src/content/i18n/en.json`): the Pulse text missed what it records (country, network name,
+  clicks, form name on submit) and the daily-rotating visitor code; Clarity's cookies and a GA opt-out were missing. The
+  advertising paragraph said "This site may show ads"; it now says no ads run today and ads may come later (kept, not
+  removed). The 12 translated privacy pages already name the same three services (GA, Clarity, the counter) and nothing
+  that is not used; they do not yet carry the extra Pulse detail. Translating that is left for a reviewed translation
+  pass rather than unreviewed machine text.
+- Crawl: robots.txt allows crawling and names the sitemap. All 172 sitemap URLs return 200 (one, /pa/, timed out once and
+  returned 200 on retry), none redirects, none is noindex, every canonical matches.
+- Raw HTML: main text is in the static HTML (English home about 750 words, /mr/pm-surya-ghar-subsidy/ about 680).

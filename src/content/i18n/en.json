@@ -670,7 +670,7 @@
         },
         {
           "t": "p",
-          "x": "Google Analytics counts visits and clicks, including which site or campaign sent you. Microsoft Clarity may record anonymised sessions (clicks and scrolling); text typed into forms is masked. Both set cookies or local storage. Block them in your browser if you prefer. A small counter run by me, with no cookies, also records page views, the page you came from and link clicks; it stores no IP address, name or anything you type, deletes records after 90 days, and switches itself off if your browser sends Do Not Track or Global Privacy Control."
+          "x": "Google Analytics (googletagmanager.com) counts visits and clicks, including which site or campaign sent you; it sets cookies (_ga, _ga_*), and you can opt out with Google's add-on at tools.google.com/dlpage/gaoptout. Microsoft Clarity (clarity.ms) records session replays and heatmaps (mouse movement, clicks and scrolling); text typed into forms is masked. It sets its own cookies (_clck, _clsk) and Microsoft cookies on clarity.ms and bing.com (such as MUID); see privacy.microsoft.com/privacystatement. Block either in your browser if you prefer. Pulse, a small counter run by me (pulse.yaseenyk.workers.dev, a Cloudflare Worker), sets no cookies. It records the page, the page you came from and campaign tags, country, device type, browser and system name, screen size, language, the name of your network provider, scroll depth, time on the page, page speed, which links and buttons you clicked, and, when a form is sent, the form's name only, never what you typed. It stores no IP address or browser string: the IP address is used in memory only, to limit abuse and to make a visitor code that changes every day (a one-way hash with a random salt deleted the next day), so visits cannot be linked across days. It deletes records after 90 days and switches itself off if your browser sends Do Not Track or Global Privacy Control."
         },
         {
           "t": "h2",
@@ -678,7 +678,7 @@
         },
         {
           "t": "p",
-          "x": "This site may show ads served by Google. Google and its partners may use cookies to show ads based on your earlier visits. You can manage this in your Google ad settings. Ads never change what this guide says."
+          "x": "No ads run on this site today. In future it may show ads served by Google. Google and its partners may use cookies to show ads based on your earlier visits. You can manage this in your Google ad settings. Ads never change what this guide says."
         }
       ],
       "sourceKeys": []
